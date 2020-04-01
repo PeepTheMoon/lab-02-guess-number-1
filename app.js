@@ -1,4 +1,4 @@
-//import compareNumbers from '../compare-numbers.js';
+import compareNumbers from '../compare-numbers.js';
 
 const guessedNum = document.getElementById('number-input');
 const guessedValue = guessedNum.value;
@@ -7,6 +7,8 @@ const myButton = document.getElementById('button');
 const highOrLow = document.getElementById('high-or-low');
 const theNumber = Math.ceil(Math.random() * 20);
 const winLose = document.getElementById('win-lose');
+const newNum = Number(guessedValue);
+
 
 console.log(theNumber);
 
@@ -20,19 +22,26 @@ function reduceTry() {
     numOfTry -= 1;
 }
 
-function checkCorrectNum() {
-    if (guessedValue > 0 && guessedValue < 21) {
-        return true;
-    } 
-    else {
-        highOrLow.textContent = 'Incorrect Number';
+function goodNumber() {
+    if (newNum > 0) {
+        highOrLow.textContent = 'greater than zero!';
     }
 }
 
 
-
 myButton.addEventListener('click', () => {
     //convert guess to a number
+    const newResults = compareNumbers(newNum, theNumber);
+    console.log(newResults);
+    if (newResults === 0) {
+        winLose.textContent = 'Winner';
+    } else if (newResults === 1) {
+        winLose.textContent = 'Too high';
+    } else if (newResults === -1) {
+        winLose.textContent = 'Too low';
+    }
+
+
     //compare the actual to the guessed number using func
     // if to hi or to low display message
         //decrement number of tries remaining
@@ -40,7 +49,7 @@ myButton.addEventListener('click', () => {
         // and disable game play
     // if it is correct guess , display the win msg
     // and disable game play
-    checkCorrectNum();
+    goodNumber();
     reduceTry();
     tryNum.textContent = numOfTry;
 });
