@@ -18,3 +18,24 @@ test('test if guess is to low', function(assert) {
     // Make assertions about what is expected valid result
     assert.equal(expected, result);
 });
+
+test('test if guess is to high', function(assert) {
+    const guess = 7;
+    const correctNumber = 5;
+    const expected = 1;
+
+    const result = compareNumbers(guess, correctNumber);
+
+    assert.equal(expected, result);
+});
+
+test('test if guess equals the number', function(assert) {
+    const guess = 10;
+    const correctNumber = 10;
+    const expected = 0;
+
+    const result = compareNumbers(guess, correctNumber);
+
+    assert.equal(expected, result);
+});
+
