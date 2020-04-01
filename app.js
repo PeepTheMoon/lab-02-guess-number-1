@@ -1,11 +1,14 @@
-//import
+//import compareNumbers from '../compare-numbers.js';
 
 const guessedNum = document.getElementById('number-input');
 const guessedValue = guessedNum.value;
 const tryNum = document.getElementById('num-try');
 const myButton = document.getElementById('button');
-const output = document.getElementById('output');
-const theNumber = (Math.ceil(Math.random() * 10) * 2);
+const highOrLow = document.getElementById('high-or-low');
+const theNumber = Math.ceil(Math.random() * 20);
+const winLose = document.getElementById('win-lose');
+
+console.log(theNumber);
 
 
 let numOfTry = 4;
@@ -22,13 +25,21 @@ function checkCorrectNum() {
         return true;
     } 
     else {
-        output.textContent = 'Incorrect Number';
+        highOrLow.textContent = 'Incorrect Number';
     }
 }
 
 
 
 myButton.addEventListener('click', () => {
+    //convert guess to a number
+    //compare the actual to the guessed number using func
+    // if to hi or to low display message
+        //decrement number of tries remaining
+        // if no tries remaining , display the lose' msg
+        // and disable game play
+    // if it is correct guess , display the win msg
+    // and disable game play
     checkCorrectNum();
     reduceTry();
     tryNum.textContent = numOfTry;

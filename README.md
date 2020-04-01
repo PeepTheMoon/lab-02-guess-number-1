@@ -24,7 +24,7 @@ will need:
 1. Display of guess too high or too low
 1. Display of lose and win result
 
-### TDD `compareNumbers` Function
+### TDD `compareNumbers` Function  DONE !
 
 We will need to know whether the user's guess is correct, too low, or too high.
 
